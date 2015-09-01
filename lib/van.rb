@@ -12,6 +12,7 @@ class Van
   end
 
   def load bike
+    raise 'Van is full' if full_capacity?
     @bikes_in_the_Van << bike
   end
 

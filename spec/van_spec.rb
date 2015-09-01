@@ -32,5 +32,17 @@ describe Van do
     expect(van.full_capacity?).to be true
   end
 
+  it 'should load only broken bikes at docking station' do
+    broken_bike = bike
+    broken_bike.break
+
+    van.load bike if broken_bike.broken? == true
+
+    expect(van.bikes_in_the_Van_count).to eq 1
+
+  end
+
+
+
 
 end
