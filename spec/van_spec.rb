@@ -11,19 +11,19 @@ describe Van do
 
   it 'should be empty at the begining' do
 
-    expect(van.bikes_in_the_Van_count).to eq 0
+    expect(van.bikes_in_the_van_count).to eq 0
   end
 
   it 'should be able to load bikes' do
     van.load(bike)
 
-    expect(van.bikes_in_the_Van_count).to eq 1
+    expect(van.bikes_in_the_van_count).to eq 1
   end
 
   it 'should be able to download bikes' do
     van.download(bike)
 
-    expect(van.bikes_in_the_Van_count).to eq 0
+    expect(van.bikes_in_the_van_count).to eq 0
   end
 
   it 'should know when it has reached its capacity' do
@@ -38,10 +38,18 @@ describe Van do
 
     van.load bike if broken_bike.broken? == true
 
-    expect(van.bikes_in_the_Van_count).to eq 1
+    expect(van.bikes_in_the_van_count).to eq 1
 
   end
 
+  it 'should load only fixed bikes at Garage' do
+    fixed_bike = bike
+    fixed_bike.fix
+
+    van.load bike if fixed_bike.broken? == false
+
+    expect(van.bikes_in_the_van_count).to eq 1
+  end
 
 
 
