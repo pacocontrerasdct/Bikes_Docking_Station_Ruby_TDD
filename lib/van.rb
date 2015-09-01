@@ -8,8 +8,12 @@ class Van
     @bikes_in_the_Van.count
   end
 
-  def carry_on bike
+  def load bike
     @bikes_in_the_Van << bike
+  end
+
+  def download bike
+    @bikes_in_the_Van.delete bike
   end
 
 end
