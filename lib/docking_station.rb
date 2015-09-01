@@ -1,6 +1,6 @@
 class DockingStation
 
-  DEFAULT_CAPACITY = 5
+  DEFAULT_CAPACITY = 20
 
   def initialize options = {}
     # @capacity = options[:capacity]

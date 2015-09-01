@@ -1,6 +1,9 @@
 class Van
 
-  def initialize
+  DEFAULT_CAPACITY = 5
+
+  def initialize options = {}
+    @van_capacity = options.fetch(:capacity, DEFAULT_CAPACITY)
     @bikes_in_the_Van = []
   end
 
@@ -14,6 +17,10 @@ class Van
 
   def download bike
     @bikes_in_the_Van.delete bike
+  end
+
+  def full_capacity?
+    bikes_in_the_Van_count == @van_capacity
   end
 
 end
