@@ -13,6 +13,8 @@ describe Garage do
     broken_bike = bike
     broken_bike.break
     garage.dock bike if broken_bike.broken? == true
+    
+    # When Download broken bikes count+1 in Garage counter and count-1 in Van counter
     van.download bike
     
     expect(garage.bikes_count).to eq 1
@@ -22,6 +24,8 @@ describe Garage do
     broken_bike = bike
     broken_bike.fix
     van.load bike if broken_bike.broken? == false
+    
+    # When load fixed bikes count+1 in Van counter and count-1 in Garage counter
     garage.release bike
 
     expect(garage.bikes_count).to eq 0
